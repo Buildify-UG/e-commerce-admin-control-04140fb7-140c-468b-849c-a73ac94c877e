@@ -1,3 +1,4 @@
+/* MarketHub E-Commerce Platform */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -119,45 +120,17 @@
   }
 
   /* Shadow tokens */
-  .shadow-sm {
-    @apply shadow-sm;
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
 
-  .shadow-card {
-    @apply shadow-md hover:shadow-lg transition-shadow duration-300;
+  .shadow-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
 
   .shadow-elevated {
-    @apply shadow-xl;
-  }
-}
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -182,16 +155,5 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply text-foreground;
-    background: linear-gradient(160deg, rgb(20, 36, 80) 0%, rgba(18, 18, 18, 1) 30%, rgba(18, 18, 18, 1) 72%, rgb(46, 15, 40) 100%);
   }
 }

@@ -1,3 +1,4 @@
+// MarketHub Tailwind Config
 import type { Config } from "tailwindcss";
 
 export default {
