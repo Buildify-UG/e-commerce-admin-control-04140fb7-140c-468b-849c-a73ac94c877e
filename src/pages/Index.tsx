@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Search,
   ShoppingCart,
@@ -174,10 +175,11 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const navigate = useNavigate();
   const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
 
   return (
-    <div className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
+    <div onClick={() => navigate(`/product/${product.id}`)} className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer">
       {/* Image Container */}
       <div className="relative overflow-hidden bg-muted h-64 sm:h-56">
         <img
@@ -281,6 +283,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => (
 // ============================================================================
 
 export default function Index() {
+  const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(3);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const flashDealEnd = new Date(Date.now() + 5 * 60 * 60 * 1000); // 5 hours from now
@@ -331,7 +334,7 @@ export default function Index() {
               </button>
 
               {/* Cart */}
-              <button className="relative p-2 hover:bg-muted rounded-lg transition-colors">
+              <button onClick={() => navigate('/cart')} className="relative p-2 hover:bg-muted rounded-lg transition-colors">
                 <ShoppingCart className="w-5 h-5 text-foreground" />
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-destructive text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
@@ -579,7 +582,7 @@ export default function Index() {
       </footer>
 
       {/* ====== STICKY CART BUTTON (Mobile) ====== */}
-      <button className="md:hidden fixed bottom-6 right-6 bg-primary text-primary-foreground w-14 h-14 rounded-full shadow-elevated flex items-center justify-center font-bold text-lg hover:bg-opacity-90 transition-all duration-200 active:scale-95 z-30">
+      <button onClick={() => navigate('/cart')} className="md:hidden fixed bottom-6 right-6 bg-primary text-primary-foreground w-14 h-14 rounded-full shadow-elevated flex items-center justify-center font-bold text-lg hover:bg-opacity-90 transition-all duration-200 active:scale-95 z-30">
         {cartCount}
       </button>
     </div>
